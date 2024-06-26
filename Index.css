@@ -26,6 +26,12 @@
   padding: 10px;
   margin: 10px;
   font-weight: bolder;
+  
+}
+
+a {
+  color: inherit;
+  text-decoration: none; /* no underline */
 }
 
 .topContainer {
@@ -130,4 +136,9 @@
   background-color: black;
   color: white;
   width: 100px;
+}
+
+
+.menuList {
+  list-style: decimal;
 }
