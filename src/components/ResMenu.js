@@ -1,22 +1,11 @@
-import { useEffect, useState } from "react";
+//New ResMenu
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { resItemsLink } from "../utils/constants";
+import useFetchMenu from "../utils/useFetchMenu";
 
 const ResMenu = () => {
-  const [resDetails, setResDetails] = useState([]);
   const { resID } = useParams();
-
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const rawData = await fetch(resItemsLink + resID);
-    const myData = await rawData.json();
-    setResDetails(myData);
-    // setResDetails(myData.data.cards[2].card.card.info);
-  };
+  const resDetails = useFetchMenu(resID);
 
   if (resDetails.length === 0) {
     return <Shimmer />;
@@ -28,7 +17,6 @@ const ResMenu = () => {
   const { itemCards } =
     resDetails?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
       ?.card?.card;
-  console.log(itemCards);
 
   return (
     <div>

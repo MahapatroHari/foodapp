@@ -2,32 +2,19 @@ import ResCards from "./ResCards";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
+import useFetchRes from "../utils/useFetchRes";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-  const [listOfRes, setListOfRes] = useState([]);
-  const [filListOfResto, setFilListOfResto] = useState([]);
   const [searchVal, setSearchVal] = useState("");
+  const { listOfRes, filListOfResto, setFilListOfResto } = useFetchRes();
+  const onlineStatus = useOnlineStatus();
 
-  useEffect(() => {
-    fetchData();
-    console.log("Rendered with effect");
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.67740&lng=83.20360&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const jsonData = await data.json();
-    setListOfRes(
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    setFilListOfResto(
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-  };
+  if (onlineStatus === false) {
+    return(
+      <h1>Oops, Check your connection</h1>
+    )
+  }
 
   return listOfRes.length === 0 ? (
     <Shimmer />
@@ -73,7 +60,12 @@ const Body = () => {
 
       <div className="resContainer">
         {filListOfResto.map((restaurant) => (
-          <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}> <ResCards  resData={restaurant} /></Link>
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurant/" + restaurant.info.id}
+          >
+            <ResCards resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

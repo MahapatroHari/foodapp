@@ -55,6 +55,7 @@ a {
 
 .resCard {
   width: 250px;
+  min-height: 550px;
   border: none;
   background-color: rgb(240, 235, 235);
   padding: 10px;
@@ -142,3 +143,11 @@ a {
 .menuList {
   list-style: decimal;
 }
+
+
+.ghPP{
+  width: 200px;
+  height: 200px;
+}
+
+
