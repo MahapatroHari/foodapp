@@ -6,13 +6,13 @@ const Header = () => {
   const [logStat, setLogStat] = useState("LogIn");
 
   return (
-    <div className="header">
+    <div className="flex justify-between items-center bg-black shadow-lg shadow-slate-500">
       <div className="logoContainer">
-        <img className="logo" src={logo} />
+        <img className="w-28 h-28"  src={logo} />
       </div>
       <div className="navItems">
-        <ul>
-          <li>
+        <ul className="flex items-center p-5 gap-5 text-white font-bold">
+          <li >
             <Link to="/">Home</Link>
           </li>
           <li>
@@ -24,7 +24,7 @@ const Header = () => {
           
           <li>Cart</li>
           <button
-            className="logBtn"
+            className="bg-white text-stone-950 p-3 rounded-lg w-40"
             onClick={() => {
               logStat == "LogIn" ? setLogStat("Logout") : setLogStat("LogIn");
             }}
