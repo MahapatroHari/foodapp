@@ -13,7 +13,7 @@ const useFetchRes = () => {
     const rawData = await fetch(resListLink);
     const jsonData = await rawData.json();
     const restaurants =
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || [];
     setListOfRes(restaurants);
     setFilListOfResto(restaurants);

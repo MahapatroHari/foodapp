@@ -1,19 +1,33 @@
-import React from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ErrPage from "./components/Error";
 import ResMenu from "./components/ResMenu";
+import UserContext from "./utils/UserContext";
+const AboutUs = lazy(() => import("./components/AboutUs"));
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import CartPage from "./components/CartPage";
 
 const AppLayout = () => {
+  const [uName, setUname] = useState("");
+
+
+  useEffect(() => {
+    setUname("User")
+  }, [])
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ id: uName, setUname }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -32,7 +46,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/aboutus",
-        element: <AboutUs />
+        element: (
+          <Suspense>
+            <AboutUs />
+          </Suspense>
+        )
       },
       {
         path: "/contactus",
@@ -42,10 +60,14 @@ const appRouter = createBrowserRouter([
         path: "/restaurant/:resID",
         element: <ResMenu />,
       },
-    ],
+      {
+        path: "/cart",
+        element: <CartPage />
+      },
+    ],  
     errorElement: <ErrPage />,
   },
-  
+
 ])
 
 
