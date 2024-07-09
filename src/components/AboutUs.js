@@ -2,7 +2,7 @@ import UserClass from "./UserClass";
 
 
 const AboutUs = () => {
-    return <div>
+    return <div className="items-center h-screen">
         <h1>About Us</h1>
         <UserClass name="Hari Shankar from Class" age="22" />
     </div>

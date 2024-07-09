@@ -9,7 +9,7 @@ const ResCards = (props) => {
   const { slaString } = sla;
 
   return (
-    <div className=" w-[260px] h-[425px]  m-3 bg-white border border-gray-200 rounded-lg   hover:shadow-gray-700 hover:shadow-xl">
+    <div className=" w-[280px] h-[425px]  m-3 bg-white border border-slate-950 rounded-lg   hover:shadow-gray-700 hover:shadow-xl">
       <img
         className="w-lvw h-52 rounded-t-lg"
         src={cdnLink + cloudinaryImageId}

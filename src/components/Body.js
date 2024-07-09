@@ -9,8 +9,16 @@ const Body = () => {
   const [searchVal, setSearchVal] = useState("");
   const { listOfRes, filListOfResto, setFilListOfResto } = useFetchRes();
   const onlineStatus = useOnlineStatus();
-
   const ResCardPro = proRes(ResCards);
+  const handleFilter = () => {
+    const filteredRest = listOfRes.filter((res) => {
+      const Filtered = res.info.name
+        .toLowerCase()
+        .includes(searchVal.toLowerCase());
+      return Filtered;
+    });
+    setFilListOfResto(filteredRest);
+  }
 
   if (onlineStatus === false) {
     return <h1>Oops, Check your connection</h1>;
@@ -20,29 +28,22 @@ const Body = () => {
   return listOfRes.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="topContainer flex gap-2.5 p-5 mt-4">
+    <div className="body ">
+      <div className="topContainer flex gap-2.5 p-5 ">
         <div className="searchContainer flex gap-2.5">
           <input
             className="searchBox border-2 border-black- rounded-lg text-center"
             placeholder="Restaurant Name"
             value={searchVal}
             onChange={(v) => {
+              handleFilter();
               setSearchVal(v.target.value);
-            }}
+            }}  
           />
 
           <button
             className=" bg-black text-white p-3 rounded-lg w-30 flex justify-center items-center gap-1  hover:shadow-gray-700 shadow-md"
-            onClick={() => {
-              const filteredRest = listOfRes.filter((res) => {
-                const Filtered = res.info.name
-                  .toLowerCase()
-                  .includes(searchVal.toLowerCase());
-                return Filtered;
-              });
-              setFilListOfResto(filteredRest);
-            }}
+            onClick={handleFilter}
           >
             <svg
               className="w-4 h-4 me-2"
@@ -96,8 +97,8 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            <ResCardPro resData={restaurant} />
-            {/* <ResCards resData={restaurant} /> */}
+            {/* <ResCardPro resData={restaurant} /> */}
+            <ResCards resData={restaurant} />
           </Link>
         ))}
       </div>

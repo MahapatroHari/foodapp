@@ -11,5 +11,5 @@ export const resItemsLink =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.67740&lng=83.20360&restaurantId=";
 
 export const resListLink =
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.67740&lng=83.20360&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.698579&lng=83.299475&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 

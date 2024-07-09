@@ -1,7 +1,7 @@
 const Shimmer = () => {
   return (
     <div>
-      <div className="topContainer flex gap-2.5 p-5 mt-4">
+      <div className="topContainer flex gap-2.5 p-5 ">
         <div className="searchContainer flex gap-2.5">
           <input
             className="searchBox border-2 border-black- rounded-lg text-center"
@@ -47,8 +47,8 @@ const Shimmer = () => {
         </button>
       </div>
       <div  className="flex flex-wrap justify-center ">
-        {Array.from({ length: 20 }).map((_, index) => (
-          <div key={index} className="flex-col gap-2 w-[260px] h-[425px]  m-3 bg-white border rounded-lg">
+        {Array.from({ length: 8 }).map((_, index) => (
+          <div key={index} className="flex-col gap-2 w-[280px] h-[425px]  m-3 bg-white border rounded-lg">
             <div className="bg-gray-400 h-52 w-[100%]  rounded-t-lg"></div>
             <div className="bg-gray-400 w-52 h-10 m-2 rounded-md"></div>
             <div className="bg-gray-400 w-24 h-6 m-2 rounded-md"></div>

@@ -11,10 +11,10 @@ const CartPage = () => {
     }
 
     return (
-        <div className="text-center w-6/12 mt-5 m-auto p-4">
+        <div className="text-center w-6/12 mt-5 m-auto p-4 h-screen">
             <div className="flex justify-between">
                 <h1 className="font-bold text-4xl">Cart Items</h1>
-                <button className="bg-slate-900 p-2 rounded-md text-white font-bold"
+                <button className="bg-slate-900 p-2 rounded-md text-white font-bold hover:opacity-85"
                     onClick={handleClear}>Clear Cart</button>
             </div>
 

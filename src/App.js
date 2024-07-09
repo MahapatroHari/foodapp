@@ -22,7 +22,7 @@ const AppLayout = () => {
   return (
     <Provider store={appStore}>
       <UserContext.Provider value={{ id: uName, setUname }}>
-        <div className="app">
+        <div className="app bg-slate-200">
           <Header />
           <Outlet />
         </div>
@@ -65,6 +65,7 @@ const appRouter = createBrowserRouter([
         element: <CartPage />
       },
     ],  
+    
     errorElement: <ErrPage />,
   },
 
