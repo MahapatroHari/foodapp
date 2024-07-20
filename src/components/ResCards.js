@@ -2,7 +2,6 @@ import { cdnLink } from "../utils/constants";
 
 const ResCards = (props) => {
   const { resData } = props;
-
   const { cloudinaryImageId, name, avgRating, costForTwo, cuisines, sla } =
     resData?.info;
 
@@ -24,18 +23,19 @@ const ResCards = (props) => {
         <p>Rating: {avgRating}</p>
       </div>
     </div>
-  );
+  );  
 };
-export const proRes = (ResCards) => {
-  return (props) => {
-    return (
-      <div>
-        <label className="bg-black absolute text-white rounded-lg p-2 mt-1 ml-4">Promoted</label>
-        <ResCards {...props}/>
-      </div>
-    );
-  };
-};
+
+// export const proRes = (ResCards) => {
+//   return (props) => {
+//     return (
+//       <div>
+//         <label className="bg-black absolute text-white rounded-lg p-2 mt-1 ml-4">Promoted</label>
+//         <ResCards {...props}/>
+//       </div>
+//     );
+//   };
+// };
 
 export default ResCards;
   

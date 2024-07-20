@@ -1,4 +1,5 @@
-import ResCards, { proRes } from "./ResCards";
+import ResCards from "./ResCards";
+// import { proRes } from "./ResCards";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -9,7 +10,7 @@ const Body = () => {
   const [searchVal, setSearchVal] = useState("");
   const { listOfRes, filListOfResto, setFilListOfResto } = useFetchRes();
   const onlineStatus = useOnlineStatus();
-  const ResCardPro = proRes(ResCards);
+  // const ResCardPro = proRes(ResCards);
   const handleFilter = () => {
     const filteredRest = listOfRes.filter((res) => {
       const Filtered = res.info.name
@@ -38,7 +39,7 @@ const Body = () => {
             onChange={(v) => {
               handleFilter();
               setSearchVal(v.target.value);
-            }}  
+            }}
           />
 
           <button
