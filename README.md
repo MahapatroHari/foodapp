@@ -169,4 +169,3 @@ Feel free to open issues or submit pull requests if you find bugs or want to con
 
 ---
 
-Feel free to adjust any section or add more details specific to your project as needed.
