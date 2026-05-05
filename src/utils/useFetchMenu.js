@@ -10,7 +10,7 @@ const useFetchMenu = (resID) => {
 
   const fetchMenu = async () => {
     try {
-      const res = await fetch("https://handler-cors.vercel.app/fetch", {
+      const res = await fetch("https://bypass-cors-online.vercel.app/fetch", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,6 +25,7 @@ const useFetchMenu = (resID) => {
       }
 
       const json = await res.json();
+      console.log("Full Menu Data:", json);
       setResDetails(json);
     } catch (error) {
       console.error("Error fetching data:", error);

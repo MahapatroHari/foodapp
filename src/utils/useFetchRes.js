@@ -11,7 +11,7 @@ const useFetchRes = () => {
 
   const fetchRes = async () => {
     try {
-      const res = await fetch("https://handler-cors.vercel.app/fetch", {
+      const res = await fetch("https://bypass-cors-online.vercel.app/fetch", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

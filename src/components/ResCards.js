@@ -13,8 +13,8 @@ const ResCards = (props) => {
         className="w-lvw h-52 rounded-t-lg"
         src={cdnLink + cloudinaryImageId}
       />
-      <div className="p-5 mb-3 font-normal text-gray-700 dark:text-gray-400">
-        <h5 className="mb-2 text-base font-bold tracking-tight text-gray-900 dark:text-white">
+      <div className="p-5 mb-3 font-normal text-gray-700">
+        <h5 className="mb-2 text-base font-bold tracking-tight text-gray-900">
           {name}
         </h5>
         <p>{costForTwo}</p>
